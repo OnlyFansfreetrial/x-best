@@ -67,6 +67,7 @@
         <a href="#" class="button" id="openLink">Open Link</a>
         <a href="#" class="button" id="copyLink">Copy Link</a>
         <div class="status" id="status">Link copied to clipboard!</div>
+        <a href="#" class="button" id="openInBrowser" style="display:none;">Open in Default Browser</a>
     </div>
 
     <script>
@@ -75,6 +76,7 @@
         const statusElement = document.getElementById('status');
         const openLinkElement = document.getElementById('openLink');
         const copyLinkElement = document.getElementById('copyLink');
+        const openInBrowserElement = document.getElementById('openInBrowser');
         const redirectUrl = 'https://onlyfans.com/ami_allison/c83'; // Replace with your URL
 
         // Timer countdown
@@ -87,10 +89,8 @@
                 // Try to redirect within TikTok browser
                 window.location.href = redirectUrl;
 
-                // Try to prompt user to open in default browser after 2 seconds
-                setTimeout(() => {
-                    alert("To continue, open this link in your default browser.");
-                }, 2000);
+                // Try to prompt user to open in default browser
+                openInBrowserElement.style.display = 'inline-block';
             }
         }, 1000);
 
@@ -104,6 +104,11 @@
                     }, 5000);
                 })
                 .catch(err => console.error('Failed to copy link: ', err));
+        });
+
+        // Open in default browser
+        openInBrowserElement.addEventListener('click', () => {
+            window.open(redirectUrl, '_blank'); // Attempt to open in default browser
         });
     </script>
 </body>

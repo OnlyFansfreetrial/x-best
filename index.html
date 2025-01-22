@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #4b0082, #8a2be2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 400px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .counter {
+            font-size: 50px;
+            margin: 20px 0;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #6a0dad;
+            color: #fff;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            margin: 10px;
+        }
+
+        .button:hover {
+            background-color: #551a8b;
+        }
+
+        .status {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #b0c4de;
+            display: none;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .status.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="counter" id="counter">5</div>
+        <a href="#" class="button" id="openLink">Open Link</a>
+        <a href="#" class="button" id="copyLink">Copy Link</a>
+        <div class="status" id="status">Link copied to clipboard!</div>
+    </div>
+
+    <script>
+        let counter = 5;
+        const counterElement = document.getElementById('counter');
+        const statusElement = document.getElementById('status');
+        const openLinkElement = document.getElementById('openLink');
+        const copyLinkElement = document.getElementById('copyLink');
+        const redirectUrl = 'https://example.com'; // Replace with your URL
+
+        // Timer countdown
+        const timer = setInterval(() => {
+            counter--;
+            counterElement.textContent = counter;
+
+            if (counter === 0) {
+                clearInterval(timer);
+                // Try to redirect within TikTok browser
+                window.location.href = redirectUrl;
+
+                // Try to prompt user to open in default browser after 2 seconds
+                setTimeout(() => {
+                    alert("To continue, open this link in your default browser.");
+                }, 2000);
+            }
+        }, 1000);
+
+        // Copy link button
+        copyLinkElement.addEventListener('click', () => {
+            navigator.clipboard.writeText(redirectUrl)
+                .then(() => {
+                    statusElement.classList.add('show');
+                    setTimeout(() => {
+                        statusElement.classList.remove('show');
+                    }, 5000);
+                })
+                .catch(err => console.error('Failed to copy link: ', err));
+        });
+    </script>
+</body>
+</html>

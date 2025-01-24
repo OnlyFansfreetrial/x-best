@@ -29,6 +29,25 @@
             color: #fff;
             font-weight: bold;
         }
+
+        .arrow {
+            display: inline-block;
+            margin-top: 20px;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 20px solid #fff;
+            position: absolute;
+            top: 10%;
+            right: 5%;
+            animation: bounce 1s infinite alternate;
+        }
+
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(20px); }
+        }
     </style>
     <script>
         // Проверка, открыт ли сайт в TikTok WebView
@@ -37,7 +56,7 @@
             return userAgent.includes("tiktok") || userAgent.includes("musically");
         }
 
-        // Внешний редирект для обычных браузеров
+        // Если не TikTok WebView, выполняем редирект
         window.onload = function () {
             if (!isTikTokWebView()) {
                 // Для обычных браузеров, редирект через мета-тег
@@ -51,6 +70,7 @@
 </head>
 <body>
     <h1>Explore Our World</h1>
+    <div class="arrow"></div>
     <div class="instructions">
         If you're on TikTok, open the <span class="highlight">three dots</span> menu and select <span class="highlight">"Open in Browser"</span> to continue.
     </div>

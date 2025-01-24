@@ -18,6 +18,7 @@
             height: 100vh;
             text-align: center;
             overflow: hidden;
+            position: relative;
         }
 
         .content {
@@ -34,13 +35,14 @@
         }
 
         .arrow {
-            display: inline-block;
+            position: absolute;
+            top: 10px;
+            right: 10px;
             width: 0;
             height: 0;
             border-left: 10px solid transparent;
             border-right: 10px solid transparent;
             border-bottom: 15px solid #fff;
-            margin-top: 10px;
             animation: bounce 1s infinite alternate;
         }
 
@@ -111,7 +113,6 @@
 <body>
     <div class="content">
         <h1>Explore AamiAllis</h1>
-        <div class="arrow"></div>
         <div class="instructions">
             Open the <span class="highlight">three dots</span> menu in TikTok and select <span class="highlight">"Open in Browser"</span>.
         </div>
@@ -119,6 +120,8 @@
             Enter
         </button>
     </div>
+    <!-- Стрелочка в правом верхнем углу -->
+    <div class="arrow"></div>
     <div class="footer">TikTok WebView Experience</div>
 </body>
 </html>

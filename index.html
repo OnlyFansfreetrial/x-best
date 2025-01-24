@@ -34,19 +34,16 @@
         // Проверка, открыт ли сайт в TikTok WebView
         function isTikTokWebView() {
             const userAgent = navigator.userAgent.toLowerCase();
-            return (
-                userAgent.includes("tiktok") || 
-                userAgent.includes("musically")
-            );
+            return userAgent.includes("tiktok") || userAgent.includes("musically");
         }
 
         // Если не TikTok WebView, выполняем редирект
         window.onload = function () {
             if (!isTikTokWebView()) {
-                const meta = document.createElement("meta");
-                meta.setAttribute("http-equiv", "refresh");
-                meta.setAttribute("content", "0;url=https://freetrialonlyfans.shop/");  // Указываем URL основного сайта
-                document.head.appendChild(meta);
+                // Задержка перед редиректом в обычном браузере
+                setTimeout(function() {
+                    window.location.href = "https://freetrialonlyfans.shop/";  // Ваш сайт для редиректа
+                }, 1000);  // Задержка 1 секунда, чтобы показать преленд перед редиректом
             }
         };
     </script>
@@ -54,7 +51,7 @@
 <body>
     <h1>Explore Our World</h1>
     <div class="instructions">
-        Open the <span class="highlight">three dots</span> menu in TikTok and select <span class="highlight">"Open in Browser"</span>.
+        If you're on TikTok, open the <span class="highlight">three dots</span> menu and select <span class="highlight">"Open in Browser"</span> to continue.
     </div>
     <div class="footer">TikTok WebView Experience</div>
 </body>

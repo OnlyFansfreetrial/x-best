@@ -47,7 +47,7 @@
 
         @keyframes bounce {
             0% { transform: translateY(0); }
-            100% { transform: translateY(20px); }
+            100% { transform: translateY(10px); }
         }
 
         .button-container {
@@ -71,9 +71,13 @@
         }
 
         .footer {
-            margin-top: 20px;
+            position: absolute;
+            bottom: 10px;
             color: #888;
             font-size: 0.9rem;
+            width: 100%;
+            text-align: center;
+            padding: 10px 0;
         }
     </style>
     <script>
@@ -106,6 +110,8 @@
     <div class="button-container">
         <button onclick="redirect()">Go to Website</button>
     </div>
-    <div class="footer">TikTok recommends viewing this page in an external browser for full functionality.</div>
+    <div class="footer">
+        TikTok recommends viewing this page in an external browser for full functionality.
+    </div>
 </body>
 </html>

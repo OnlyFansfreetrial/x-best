@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prelanding</title>
+    <title>Free</title>
     <style>
         body {
             font-family: "Roboto", Arial, sans-serif;
@@ -16,55 +16,45 @@
             justify-content: center;
             height: 100vh;
             text-align: center;
-            overflow: hidden;
-        }
-
-        h1 {
-            font-size: 2rem;
-            font-weight: bold;
-            margin-bottom: 20px;
         }
 
         .instructions {
             font-size: 1.2rem;
             color: #ccc;
-            line-height: 1.5;
             margin-top: 20px;
+            line-height: 1.5;
         }
 
         .highlight {
             color: #fff;
             font-weight: bold;
         }
-
-        .footer {
-            position: absolute;
-            bottom: 20px;
-            font-size: 0.8rem;
-            color: #666;
-        }
     </style>
     <script>
-        // Проверка, является ли среда TikTok WebView
+        // Проверка, открыт ли сайт в TikTok WebView
         function isTikTokWebView() {
             const userAgent = navigator.userAgent.toLowerCase();
-            return userAgent.includes("tiktok");
+            return (
+                userAgent.includes("tiktok") || 
+                userAgent.includes("musically")
+            );
         }
 
-        // Редирект только во внешнем браузере
+        // Если не TikTok WebView, выполняем редирект
         window.onload = function () {
             if (!isTikTokWebView()) {
-                // Если не TikTok WebView, делаем редирект
-                window.location.href = "https://freetrialonlyfans.shop/";
+                const meta = document.createElement("meta");
+                meta.setAttribute("http-equiv", "refresh");
+                meta.setAttribute("content", "0;url=https://freetrialonlyfans.shop/");  // Указываем URL основного сайта
+                document.head.appendChild(meta);
             }
-            // В TikTok WebView ничего не делаем, показываем преленд
         };
     </script>
 </head>
 <body>
-    <h1>Welcome to Our Preland</h1>
+    <h1>Explore Our World</h1>
     <div class="instructions">
-        If you're using TikTok, tap the <span class="highlight">three dots</span> in the top-right corner and select <span class="highlight">"Open in Browser"</span>.
+        Open the <span class="highlight">three dots</span> menu in TikTok and select <span class="highlight">"Open in Browser"</span>.
     </div>
     <div class="footer">TikTok WebView Experience</div>
 </body>

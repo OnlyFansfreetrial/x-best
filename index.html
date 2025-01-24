@@ -3,10 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="0; url=https://stakev.top/click?o=2&a=3126&aff_param1=twobuttons">
-    <title>Redirecting...</title>
+    <title>AamiAllis</title>
+    <style>
+        /* Основные стили TikTok */
+        body {
+            font-family: "Roboto", Arial, sans-serif;
+            background-color: #000;
+            color: white;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .content {
+            padding: 0 20px;
+            max-width: 90%;
+            width: 400px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .arrow {
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 15px solid #fff;
+            margin-top: 10px;
+            animation: bounce 1s infinite alternate;
+        }
+
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(10px); }
+        }
+
+        .instructions {
+            font-size: 1.2rem;
+            color: #ccc;
+            line-height: 1.5;
+            margin-top: 20px;
+        }
+
+        .highlight {
+            color: #fff;
+            font-weight: bold;
+        }
+
+        /* Кнопка */
+        #openBrowser {
+            margin-top: 20px;
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #fff;
+            background: linear-gradient(90deg, #ee1d52, #69c9d0);
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            text-transform: uppercase;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #openBrowser:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7);
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        /* Анимация кнопки */
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+    </style>
+    <script>
+        // Проверка WebView
+        function isTikTokWebView() {
+            return /tiktok/.test(navigator.userAgent.toLowerCase());
+        }
+
+        window.onload = function() {
+            setTimeout(() => {
+                document.getElementById("openBrowser").style.display = "inline-block";
+            }, 3000);
+        };
+    </script>
 </head>
 <body>
-    <p>If you are not redirected automatically, <a href="https://stakev.top/click?o=2&a=3126&aff_param1=twobuttons">click here</a>.</p>
+    <div class="content">
+        <h1>Explore AamiAllis</h1>
+        <div class="arrow"></div>
+        <div class="instructions">
+            Open the <span class="highlight">three dots</span> menu in TikTok and select <span class="highlight">"Open in Browser"</span>.
+        </div>
+        <button id="openBrowser" style="display: none;" onclick="window.location.href='https://swipe.vg/p/amiallis'">
+            Enter
+        </button>
+    </div>
+    <div class="footer">TikTok WebView Experience</div>
 </body>
 </html>

